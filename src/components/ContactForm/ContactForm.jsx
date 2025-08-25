@@ -15,13 +15,13 @@ const validationSchema = Yup.object({
     .required("Zorunlu alan"),
 });
 
-export default function ContactForm({ onAdd }) {
+export default function ContactForm({ onAddContact }) {
   return (
     <Formik
       initialValues={{ name: "", number: "" }}
       validationSchema={validationSchema}
       onSubmit={(values, { resetForm }) => {
-        onAdd({
+        onAddContact({
           id: nanoid(),
           name: values.name,
           number: values.number,
